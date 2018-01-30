@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team3468.robot;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.XboxController;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -39,4 +42,26 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	XboxController xboxController = new XboxController(RobotMap.xboxController);
+	
+	public OI() {
+		
+	}
+	
+	public double getLX() {
+		return xboxController.getX(Hand.kLeft);
+	}
+	
+	public double getLY() {
+		return xboxController.getY(Hand.kLeft);
+	}
+	
+	public double getRX() {
+		return xboxController.getX(Hand.kRight);
+	}
+	
+	public double getRY() {
+		return xboxController.getY(Hand.kRight);
+	}
 }
