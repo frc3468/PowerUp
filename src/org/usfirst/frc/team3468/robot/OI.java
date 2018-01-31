@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.XboxController;
  */
 public class OI {  
 	
-	XboxController stick = new XboxController(RobotMap.xboxController);
+	public XboxController stick = new XboxController(RobotMap.xboxController);
 	
 	
 	
