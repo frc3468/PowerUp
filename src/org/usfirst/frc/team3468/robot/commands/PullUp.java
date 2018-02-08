@@ -1,5 +1,8 @@
 package org.usfirst.frc.team3468.robot.commands;
 
+import org.usfirst.frc.team3468.robot.Robot;
+import org.usfirst.frc.team3468.robot.subsystems.RoboLift;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -8,6 +11,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class PullUp extends Command {
 
     public PullUp() {
+    	requires(Robot.robolift);
+    	
+    	
+    	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -18,6 +25,9 @@ public class PullUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+    	Robot.robolift.PullUp();
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
