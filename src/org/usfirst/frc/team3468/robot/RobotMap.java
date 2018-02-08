@@ -27,9 +27,9 @@ public class RobotMap {
 	
 	public static int liftMotor = 4;
 	
-	public static int xboxLift = 5;
+	public static int bopItButton = 1;
 	
-	public static int xboxSet = 6;
+	public static int bipItButton = 2;
 	
 	
 	

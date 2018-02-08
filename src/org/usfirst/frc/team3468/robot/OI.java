@@ -8,6 +8,8 @@
 package org.usfirst.frc.team3468.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -16,8 +18,8 @@ import edu.wpi.first.wpilibj.XboxController;
 public class OI {  
 	
 	public XboxController stick = new XboxController(RobotMap.xboxController);
-	public XboxController aButton = new XboxController(RobotMap.xboxLift);
-	public XboxController bButton = new XboxController(RobotMap.xboxSet);
+	public Button aButton = new JoystickButton(stick, RobotMap.bopItButton); 
+	public Button bButton = new JoystickButton(stick, RobotMap.bipItButton);
 	
 	
 	
