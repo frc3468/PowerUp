@@ -16,12 +16,21 @@ public class RoboLift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	public void PullUp() {
+	public void pullUp() {
 		motorLift.set(.2);
-		
-		
+	}
+	
+	public void stop() {
+		motorLift.set(0);
 		
 	}
+	
+	public void pushDown() {
+		motorLift.set(-.2);
+		
+	}
+		
+	
     public void initDefaultCommand() {
     	
     	
