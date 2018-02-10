@@ -7,8 +7,13 @@
 
 package org.usfirst.frc.team3468.robot;
 
+import org.usfirst.frc.team3468.robot.commands.CubeExhaust;
+import org.usfirst.frc.team3468.robot.commands.CubeIntake;
+
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,8 +50,12 @@ public class OI {
 	
 	XboxController xboxController = new XboxController(RobotMap.xboxController);
 	
+	Button cubeIntakeButton = new JoystickButton(xboxController, RobotMap.cubeIntakeButton);
+	Button cubeExhaustButton = new JoystickButton(xboxController, RobotMap.cubeExhaustButton);
+	
 	public OI() {
-		
+		cubeIntakeButton.whileHeld(new CubeIntake());
+		cubeExhaustButton.whileHeld(new CubeExhaust());
 	}
 	
 	public double getLX() {

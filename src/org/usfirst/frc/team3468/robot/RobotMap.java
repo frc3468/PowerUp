@@ -28,8 +28,19 @@ public class RobotMap {
 	public static int xboxController = 0;
 	
 	// Buttons
+	public static int cubeIntakeButton = 1; // A Button
+	public static int cubeExhaustButton = 2; // B Button
 	
 	//Drivetrain
-	public static int leftDrivetrainMotor = 1;
-	public static int rightDrivetrainMotor = 2;
+	public static int leftFrontDrivetrainMotor = 0;
+	public static int leftRearDrivetrainMotor = 1;
+	public static int rightFrontDrivetrainMotor = 2;
+	public static int rightRearDrivetrainMotor = 3;
+	
+	//Lift
+	public static int liftMotor = 4;
+	
+	//Claw
+	public static int leftClawMotor = 5;
+	public static int rightClawMotor = 6;
 }
