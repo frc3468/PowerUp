@@ -29,6 +29,10 @@ public class Claw extends Subsystem {
     	rightMotor.set(speed);
     }
     
+    public void stop() {
+    	set(0);
+    }
+    
     public void intake() {
     	set(0.5);
     }

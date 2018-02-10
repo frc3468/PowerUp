@@ -9,6 +9,7 @@ package org.usfirst.frc.team3468.robot;
 
 import org.usfirst.frc.team3468.robot.commands.CubeExhaust;
 import org.usfirst.frc.team3468.robot.commands.CubeIntake;
+import org.usfirst.frc.team3468.robot.commands.LiftTriggers;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
@@ -53,9 +54,13 @@ public class OI {
 	Button cubeIntakeButton = new JoystickButton(xboxController, RobotMap.cubeIntakeButton);
 	Button cubeExhaustButton = new JoystickButton(xboxController, RobotMap.cubeExhaustButton);
 	
+	Button liftTriggerDriveButton = new JoystickButton(xboxController, RobotMap.liftTriggerDriveButton);
+	
 	public OI() {
 		cubeIntakeButton.whileHeld(new CubeIntake());
 		cubeExhaustButton.whileHeld(new CubeExhaust());
+		
+		liftTriggerDriveButton.whileHeld(new LiftTriggers());
 	}
 	
 	public double getLX() {
@@ -72,5 +77,13 @@ public class OI {
 	
 	public double getRY() {
 		return xboxController.getY(Hand.kRight);
+	}
+	
+	public double getTriggers() {
+		return (xboxController.getTriggerAxis(Hand.kRight) - xboxController.getTriggerAxis(Hand.kLeft));
+	}
+	
+	public int getPOV() {
+		return xboxController.getPOV();
 	}
 }
