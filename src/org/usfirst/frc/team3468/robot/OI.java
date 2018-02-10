@@ -7,7 +7,12 @@
 
 package org.usfirst.frc.team3468.robot;
 
+import org.usfirst.frc.team3468.robot.commands.EatCube;
+import org.usfirst.frc.team3468.robot.commands.RegurgitateCube;
+
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -16,7 +21,13 @@ import edu.wpi.first.wpilibj.XboxController;
 public class OI {  
 	
 	public XboxController stick = new XboxController(RobotMap.xboxController);
+	public Button rightBack = new JoystickButton(stick,RobotMap.theEatButton);
+	public Button leftBack = new JoystickButton(stick,RobotMap.theRegurgitateButton);
 	
+	public OI() {
+		rightBack.whileHeld(new EatCube());
+		leftBack.whileHeld(new RegurgitateCube());
+	}
 	
 	
 	//// CREATING BUTTONS
