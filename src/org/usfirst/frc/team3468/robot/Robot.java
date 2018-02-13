@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3468.robot.subsystems.Claw;
 import org.usfirst.frc.team3468.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team3468.robot.subsystems.Lift;
+import org.usfirst.frc.team3468.robot.subsystems.Elevator;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,7 +27,7 @@ import org.usfirst.frc.team3468.robot.subsystems.Lift;
 public class Robot extends TimedRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Claw claw = new Claw();
-	public static final Lift lift = new Lift();
+	public static final Elevator elevator = new Elevator();
 	public static OI m_oi;
 
 	Command m_autonomousCommand;

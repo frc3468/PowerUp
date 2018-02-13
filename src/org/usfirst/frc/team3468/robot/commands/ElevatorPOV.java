@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LiftPOV extends Command {
+public class ElevatorPOV extends Command {
 
-    public LiftPOV() {
+    public ElevatorPOV() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
@@ -24,11 +24,11 @@ public class LiftPOV extends Command {
     	int povPosition = Robot.m_oi.getPOV();
     	
     	if(povPosition == 0) {
-    		Robot.lift.ascend();
+    		Robot.elevator.ascend();
     	} else if(povPosition == 180) {
-    		Robot.lift.descend();
+    		Robot.elevator.descend();
     	} else {
-    		Robot.lift.stop();
+    		Robot.elevator.stop();
     	}
     	
     }
@@ -40,7 +40,7 @@ public class LiftPOV extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.lift.set(0);
+    	Robot.elevator.set(0);
     }
 
     // Called when another command which requires one or more of the same

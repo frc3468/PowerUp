@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LiftTriggers extends Command {
+public class ElevatorTriggers extends Command {
 
-    public LiftTriggers() {
+    public ElevatorTriggers() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class LiftTriggers extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.set(Robot.m_oi.getTriggers());
+    	Robot.elevator.set(Robot.m_oi.getTriggers());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,7 +31,7 @@ public class LiftTriggers extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.lift.stop();
+    	Robot.elevator.stop();
     }
 
     // Called when another command which requires one or more of the same

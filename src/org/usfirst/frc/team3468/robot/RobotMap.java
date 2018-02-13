@@ -30,7 +30,7 @@ public class RobotMap {
 	// Buttons
 	public static int cubeIntakeButton = 1; // A Button
 	public static int cubeExhaustButton = 2; // B Button
-	public static int liftTriggerButton = 3; // X Button
+	public static int elevatorTriggerButton = 3; // X Button
 	
 	//Drivetrain
 	public static int leftFrontDrivetrainMotor = 0;
@@ -42,7 +42,7 @@ public class RobotMap {
 	public static int leftClawMotor = 4;
 	public static int rightClawMotor = 5;
 	
-	//Lift
-	public static int liftMotor = 6;
+	//Elevator
+	public static int elevatorMotor = 6;
 	
 }
