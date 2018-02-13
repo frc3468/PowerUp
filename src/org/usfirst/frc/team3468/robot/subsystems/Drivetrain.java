@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 /**
  *
@@ -20,10 +21,12 @@ public class Drivetrain extends Subsystem {
 	Spark rightFrontMotor = new Spark(RobotMap.rightFrontDrivetrainMotor);
 	Spark rightRearMotor = new Spark(RobotMap.rightRearDrivetrainMotor);
 	
-	SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontMotor, leftRearMotor);
-	SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontMotor, rightRearMotor);
+//	SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontMotor, leftRearMotor);
+//	SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontMotor, rightRearMotor);
+//	
+//	DifferentialDrive robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 	
-	DifferentialDrive robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+	MecanumDrive robotDrive = new MecanumDrive(leftFrontMotor, leftRearMotor, rightFrontMotor, rightRearMotor);
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -31,16 +34,20 @@ public class Drivetrain extends Subsystem {
     	setDefaultCommand(new JoystickDrive());
     }
     
-    public void tankDrive(double leftSpeed, double rightSpeed) {
-    	robotDrive.tankDrive(leftSpeed, rightSpeed);
+    public void mechanumDrive(double ySpeed, double xSpeed, double zRotation) {
+    	robotDrive.driveCartesian(ySpeed, xSpeed, zRotation);
     }
     
-    public void arcadeDrive(double speed, double rotation) {
-    	robotDrive.arcadeDrive(speed, rotation);
-    }
-    
-    public void haloDrive(double speed, double rotation) {
-    	robotDrive.arcadeDrive(speed, rotation);
-    }
+//    public void tankDrive(double leftSpeed, double rightSpeed) {
+//    	robotDrive.tankDrive(leftSpeed, rightSpeed);
+//    }
+//    
+//    public void arcadeDrive(double speed, double rotation) {
+//    	robotDrive.arcadeDrive(speed, rotation);
+//    }
+//    
+//    public void haloDrive(double speed, double rotation) {
+//    	robotDrive.arcadeDrive(speed, rotation);
+//    }
 }
 

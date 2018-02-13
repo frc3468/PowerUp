@@ -54,13 +54,13 @@ public class OI {
 	Button cubeIntakeButton = new JoystickButton(xboxController, RobotMap.cubeIntakeButton);
 	Button cubeExhaustButton = new JoystickButton(xboxController, RobotMap.cubeExhaustButton);
 	
-	Button liftTriggerDriveButton = new JoystickButton(xboxController, RobotMap.liftTriggerDriveButton);
+	Button liftTriggerButton = new JoystickButton(xboxController, RobotMap.liftTriggerButton);
 	
 	public OI() {
 		cubeIntakeButton.whileHeld(new CubeIntake());
 		cubeExhaustButton.whileHeld(new CubeExhaust());
 		
-		liftTriggerDriveButton.whileHeld(new LiftTriggers());
+		liftTriggerButton.whileHeld(new LiftTriggers());
 	}
 	
 	public double getLX() {

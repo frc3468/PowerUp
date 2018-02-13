@@ -20,7 +20,8 @@ public class JoystickDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(Robot.m_oi.getLY(), Robot.m_oi.getLX());
+//    	Robot.drivetrain.arcadeDrive(Robot.m_oi.getLY(), Robot.m_oi.getLX());
+    	Robot.drivetrain.mechanumDrive(Robot.m_oi.getLY(), Robot.m_oi.getRX(), Robot.m_oi.getLX());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,7 +31,7 @@ public class JoystickDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivetrain.tankDrive(0, 0);
+    	Robot.drivetrain.mechanumDrive(0, 0, 0);
     }
 
     // Called when another command which requires one or more of the same
