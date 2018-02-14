@@ -26,7 +26,6 @@ public class RobotMap {
 	public static int drivetrainRearLeft = 3;
 	
 	public static int liftMotor = 4;
-	public static int secondLiftMotor = 5;
 	
 	public static int bopItButton = 1;
 	
