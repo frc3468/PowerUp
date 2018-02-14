@@ -25,8 +25,8 @@ public class OI {
 	public Button leftBack = new JoystickButton(stick,RobotMap.theRegurgitateButton);
 	
 	public OI() {
-		rightBack.whileHeld(new EatCube());
-		leftBack.whileHeld(new RegurgitateCube());
+		rightBack.whileHeld(new RegurgitateCube());
+		leftBack.whileHeld(new EatCube());
 	}
 	
 	
