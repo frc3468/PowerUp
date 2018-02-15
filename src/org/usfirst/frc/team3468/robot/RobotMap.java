@@ -38,11 +38,13 @@ public class RobotMap {
 	public static int rightFrontDrivetrainMotor = 2;
 	public static int rightRearDrivetrainMotor = 3;
 	
-	//Claw
-	public static int leftClawMotor = 4;
-	public static int rightClawMotor = 5;
-	
 	//Elevator
-	public static int elevatorMotor = 6;
+	public static int elevatorMotor = 4;
+	public static int lowerElevatorLimitSwitch = 0;
+	public static int upperElevatorLimitSwitch = 1;
+	
+	//Claw
+	public static int leftClawMotor = 5;
+	public static int rightClawMotor = 6;
 	
 }

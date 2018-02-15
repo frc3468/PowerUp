@@ -3,6 +3,7 @@ package org.usfirst.frc.team3468.robot.subsystems;
 import org.usfirst.frc.team3468.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,6 +16,8 @@ public class Claw extends Subsystem {
 	Spark leftMotor = new Spark(RobotMap.leftClawMotor);
 	Spark rightMotor = new Spark(RobotMap.rightClawMotor);
 	
+	SpeedControllerGroup clawMotors = new SpeedControllerGroup(leftMotor, rightMotor);
+	
 	public Claw() {
 		rightMotor.setInverted(true);
 	}
@@ -25,8 +28,7 @@ public class Claw extends Subsystem {
     }
     
     public void set(double speed) {
-    	leftMotor.set(speed);
-    	rightMotor.set(speed);
+    	clawMotors.set(speed);
     }
     
     public void stop() {
@@ -38,7 +40,7 @@ public class Claw extends Subsystem {
     }
     
     public void exhaust() {
-    	set(-0.5);
+    	set(-0.8);
     }
 }
 
