@@ -3,12 +3,13 @@ package org.usfirst.frc.team3468.robot.commands;
 import org.usfirst.frc.team3468.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.filters.LinearDigitalFilter;
 
 /**
  *
  */
 public class PushDown extends Command {
-
+	
     public PushDown() {
     	requires(Robot.robolift);
     	
@@ -22,7 +23,13 @@ public class PushDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.robolift.pushDown();
+    	
+    	if(Robot.robolift.getLowerLimit()) {
+    		Robot.robolift.pullUp();
+    	}else {
+    		Robot.robolift.pushDown();
+    	}
+    	
     	
     }
 

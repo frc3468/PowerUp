@@ -25,8 +25,12 @@ public class PullUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	Robot.robolift.pullUp();
+  
+	    if(	Robot.robolift.getUpperLimit()) {
+	    	Robot.robolift.pushDown();
+	    }else {
+	    	Robot.robolift.pullUp();
+	    }
     	
     }
 

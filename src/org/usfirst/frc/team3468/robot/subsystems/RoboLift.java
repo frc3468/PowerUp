@@ -2,6 +2,7 @@ package org.usfirst.frc.team3468.robot.subsystems;
 
 import org.usfirst.frc.team3468.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -11,6 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class RoboLift extends Subsystem {
 	
 	Spark motorLift = new Spark(RobotMap.liftMotor);
+	
+	DigitalInput lowerLimit = new DigitalInput(RobotMap.lowerLimit);
+	
+	DigitalInput upperLimit = new DigitalInput(RobotMap.upperLimit);
 	
 
     // Put methods for controlling this subsystem
@@ -28,6 +33,14 @@ public class RoboLift extends Subsystem {
 	public void pushDown() {
 		motorLift.set(-.2);
 		
+	}
+	
+	public boolean getLowerLimit() {
+		return lowerLimit.get();
+	}
+	
+	public boolean getUpperLimit() {
+		return upperLimit.get();
 	}
 		
 	
