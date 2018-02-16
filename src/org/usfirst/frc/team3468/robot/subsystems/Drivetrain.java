@@ -21,12 +21,12 @@ public class Drivetrain extends Subsystem {
 	Spark rightFrontMotor = new Spark(RobotMap.rightFrontDrivetrainMotor);
 	Spark rightRearMotor = new Spark(RobotMap.rightRearDrivetrainMotor);
 	
-//	SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontMotor, leftRearMotor);
-//	SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontMotor, rightRearMotor);
-//	
-//	DifferentialDrive robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+	SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontMotor, leftRearMotor);
+	SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontMotor, rightRearMotor);
 	
-	MecanumDrive robotDrive = new MecanumDrive(leftFrontMotor, leftRearMotor, rightFrontMotor, rightRearMotor);
+	DifferentialDrive robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+	
+//	MecanumDrive robotDrive = new MecanumDrive(leftFrontMotor, leftRearMotor, rightFrontMotor, rightRearMotor);
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -34,20 +34,26 @@ public class Drivetrain extends Subsystem {
     	setDefaultCommand(new JoystickDrive());
     }
     
-    public void mechanumDrive(double ySpeed, double xSpeed, double zRotation) {
-    	robotDrive.driveCartesian(ySpeed, xSpeed, zRotation);
+//    public void mechanumDrive(double ySpeed, double xSpeed, double zRotation) {
+//    	robotDrive.driveCartesian(ySpeed, xSpeed, zRotation);
+//    }
+    
+    public void tankDrive(double leftSpeed, double rightSpeed) {
+    	robotDrive.tankDrive(leftSpeed, rightSpeed);
     }
     
-//    public void tankDrive(double leftSpeed, double rightSpeed) {
-//    	robotDrive.tankDrive(leftSpeed, rightSpeed);
-//    }
-//    
-//    public void arcadeDrive(double speed, double rotation) {
-//    	robotDrive.arcadeDrive(speed, rotation);
-//    }
-//    
-//    public void haloDrive(double speed, double rotation) {
-//    	robotDrive.arcadeDrive(speed, rotation);
-//    }
+    public void arcadeDrive(double speed, double rotation) {
+    	rotation = map(rotation, -1.0, 1.0, -0.8, 0.8);
+    	robotDrive.arcadeDrive(speed, rotation);
+    }
+    
+    public void haloDrive(double speed, double rotation) {
+    	arcadeDrive(speed, rotation);
+    }
+    
+    private double map(double x, double in_min, double in_max, double out_min, double out_max)
+    {
+      return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
 }
 

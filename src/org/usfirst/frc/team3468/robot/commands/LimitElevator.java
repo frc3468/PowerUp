@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LimitLift extends Command {
+public class LimitElevator extends Command {
 
-    public LimitLift() {
+    public LimitElevator() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.elevator);

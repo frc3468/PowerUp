@@ -2,7 +2,7 @@ package org.usfirst.frc.team3468.robot.subsystems;
 
 import org.usfirst.frc.team3468.robot.RobotMap;
 import org.usfirst.frc.team3468.robot.commands.ElevatorPOV;
-import org.usfirst.frc.team3468.robot.commands.LimitLift;
+import org.usfirst.frc.team3468.robot.commands.LimitElevator;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Spark;
@@ -24,7 +24,6 @@ public class Elevator extends Subsystem {
 		
 		@Override
 		public boolean get() {
-			// TODO Auto-generated method stub
 			return limitSwitch.get();
 		}
 	};
@@ -35,14 +34,13 @@ public class Elevator extends Subsystem {
 		
 		@Override
 		public boolean get() {
-			// TODO Auto-generated method stub
 			return limitSwitch.get();
 		}
 	};
 	
 	public Elevator() {
-		lowerLimitSwitch.whileActive(new LimitLift());
-		upperLimitSwitch.whileActive(new LimitLift());
+		lowerLimitSwitch.whileActive(new LimitElevator());
+		upperLimitSwitch.whileActive(new LimitElevator());
 	}
 	
     public void initDefaultCommand() {
