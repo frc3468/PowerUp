@@ -22,11 +22,11 @@ public class TheBeak extends Subsystem {
 		
 	}
 	public void theEat() {
-		beakMotors.set(-0.5);
+		beakMotors.set(-0.8);
 		
 	}
 	public void theRegurgitate() {
-		beakMotors.set(0.8);
+		beakMotors.set(0.65);
 		
 	}
 	public void theHalt() {
