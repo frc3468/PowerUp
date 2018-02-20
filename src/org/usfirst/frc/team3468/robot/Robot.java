@@ -16,6 +16,7 @@ import org.usfirst.frc.team3468.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3468.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3468.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3468.robot.subsystems.RoboLift;
+import org.usfirst.frc.team3468.robot.subsystems.TheBeak;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,9 +31,9 @@ public class Robot extends TimedRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static OI m_oi;
 	public static final RoboLift robolift = new RoboLift();
+	public static final TheBeak theClaw = new TheBeak();
 	
 	
-
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 

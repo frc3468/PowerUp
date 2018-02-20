@@ -9,6 +9,8 @@ package org.usfirst.frc.team3468.robot;
 
 import org.usfirst.frc.team3468.robot.commands.PullUp;
 import org.usfirst.frc.team3468.robot.commands.PushDown;
+import org.usfirst.frc.team3468.robot.commands.EatCube;
+import org.usfirst.frc.team3468.robot.commands.RegurgitateCube;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -21,16 +23,20 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {  
 	
 	public XboxController stick = new XboxController(RobotMap.xboxController);
+
 	public Button aButton = new JoystickButton(stick, RobotMap.bopItButton); 
 	public Button bButton = new JoystickButton(stick, RobotMap.bipItButton);
+	
+	public Button rightBack = new JoystickButton(stick,RobotMap.theEatButton);
+	public Button leftBack = new JoystickButton(stick,RobotMap.theRegurgitateButton);
 	
 	public OI() {
 		aButton.whileHeld(new PullUp());
 		bButton.whileHeld(new PushDown());
-		
+	
+		rightBack.whileHeld(new RegurgitateCube());
+		leftBack.whileHeld(new EatCube());
 	}
-	
-	
 	
 	
 	//// CREATING BUTTONS
