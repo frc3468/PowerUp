@@ -22,7 +22,7 @@ public class RoboLift extends Subsystem {
     // here. Call these from Commands.
 	
 	public void pullUp() {
-		motorLift.set(.2);
+		motorLift.set(-0.5);
 	}
 	
 	public void stop() {
@@ -31,7 +31,7 @@ public class RoboLift extends Subsystem {
 	}
 	
 	public void pushDown() {
-		motorLift.set(-.2);
+		motorLift.set(0.5);
 		
 	}
 	

@@ -25,6 +25,7 @@ public class Drivetrain extends Subsystem {
 	DifferentialDrive robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 	
 	public void haloDrive(double magnitude, double rotation) {
+		rotation = map(rotation, -1.0, 1.0, -0.8, 0.8);
 		robotDrive.arcadeDrive(magnitude, rotation);
 	}
     // Put methods for controlling this subsystem
@@ -33,6 +34,10 @@ public class Drivetrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new HaloDrive());
+    }
+    
+    private double map(double x, double in_min, double in_max, double out_min, double out_max) {
+      return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
 }
 
