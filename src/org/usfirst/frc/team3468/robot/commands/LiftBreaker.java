@@ -1,17 +1,19 @@
 package org.usfirst.frc.team3468.robot.commands;
 
 import org.usfirst.frc.team3468.robot.Robot;
+import org.usfirst.frc.team3468.robot.subsystems.RoboLift;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class HaloDrive extends Command {
+public class LiftBreaker extends Command {
 
-    public HaloDrive() {
-    	requires(Robot.drivetrain);
+    public LiftBreaker() {
+    	requires(Robot.robolift);
+    	
+    	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -22,7 +24,7 @@ public class HaloDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.haloDrive(-1*Robot.m_oi.stick.getY(Hand.kLeft), Robot.m_oi.stick.getX(Hand.kRight));
+    	Robot.robolift.set(-.34);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,6 +39,5 @@ public class HaloDrive extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drivetrain.haloDrive(0, 0);
     }
 }

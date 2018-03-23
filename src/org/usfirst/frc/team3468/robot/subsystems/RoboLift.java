@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3468.robot.subsystems;
 
 import org.usfirst.frc.team3468.robot.RobotMap;
+import org.usfirst.frc.team3468.robot.commands.LiftBreaker;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Spark;
@@ -20,9 +21,13 @@ public class RoboLift extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+	public void set(double speed) {
+		motorLift.set(speed);
+		
+	}
 	
 	public void pullUp() {
-		motorLift.set(-0.5);
+		motorLift.set(-0.7);
 	}
 	
 	public void stop() {
@@ -31,7 +36,7 @@ public class RoboLift extends Subsystem {
 	}
 	
 	public void pushDown() {
-		motorLift.set(0.5);
+		motorLift.set(0.3);
 		
 	}
 	
@@ -45,6 +50,7 @@ public class RoboLift extends Subsystem {
 		
 	
     public void initDefaultCommand() {
+    	setDefaultCommand(new LiftBreaker());
     	
     	
     	
