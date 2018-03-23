@@ -8,18 +8,20 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoLift extends Command {
-
-    public AutoLift() {
+	double timeout;
+	
+    public AutoLift(double timeoutSeconds) {
     	requires(Robot.robolift);
     	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	timeout = timeoutSeconds;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	setTimeout(1.5);
+    	setTimeout(timeout);
     }
 
     // Called repeatedly when this Command is scheduled to run

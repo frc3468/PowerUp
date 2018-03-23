@@ -9,16 +9,18 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoClaw extends Command {
-
-    public AutoClaw() {
+	double timeout;
+	
+    public AutoClaw(double timeoutSeconds) {
     	requires(Robot.theClaw);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	timeout = timeoutSeconds;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(1.5);
+    	setTimeout(timeout);
     }
 
     // Called repeatedly when this Command is scheduled to run

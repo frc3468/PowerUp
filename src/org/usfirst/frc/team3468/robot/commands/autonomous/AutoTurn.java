@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutoTheJerkpt2 extends Command {
+public class AutoTurn extends Command {
 	double timeout;
 
-    public AutoTheJerkpt2(double timeoutSeconds) {
+    public AutoTurn(double timeoutSeconds) {
     	requires(Robot.drivetrain);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,13 +24,12 @@ public class AutoTheJerkpt2 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.haloDrive(-0.6,0);
+    	Robot.drivetrain.haloDrive(0,.6);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	
-        return isTimedOut();
+        return isFinished();
     }
 
     // Called once after isFinished returns true
@@ -41,6 +40,6 @@ public class AutoTheJerkpt2 extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drivetrain.haloDrive(0,0);
+    	Robot.drivetrain.haloDrive(0, 0);
     }
 }

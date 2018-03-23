@@ -8,16 +8,18 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoTheJerk extends Command {
+	double timeout;
 
-    public AutoTheJerk() {
+    public AutoTheJerk(double timeoutSeconds) {
     	requires(Robot.drivetrain);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	timeout = timeoutSeconds;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(0.1);
+    	setTimeout(timeout);
     	
     }
 

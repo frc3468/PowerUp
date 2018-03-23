@@ -24,7 +24,7 @@ public class PushDown extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	if(Robot.robolift.getLowerLimit()) {
+    	if( !Robot.robolift.getLowerLimit()) {
     		Robot.robolift.pullUp();
     	}else {
     		Robot.robolift.pushDown();

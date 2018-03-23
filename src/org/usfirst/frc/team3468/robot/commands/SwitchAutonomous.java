@@ -6,6 +6,7 @@ import org.usfirst.frc.team3468.robot.commands.autonomous.AutoDrive;
 import org.usfirst.frc.team3468.robot.commands.autonomous.AutoLift;
 import org.usfirst.frc.team3468.robot.commands.autonomous.AutoTheJerk;
 import org.usfirst.frc.team3468.robot.commands.autonomous.AutoTheJerkpt2;
+import org.usfirst.frc.team3468.robot.commands.autonomous.AutoTurn;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -16,15 +17,17 @@ public class SwitchAutonomous extends CommandGroup {
 
     public SwitchAutonomous() {
     	
-    	addSequential(new AutoTheJerk());
+    	addSequential(new AutoTheJerk(0.1));
     	
-    	addParallel(new AutoTheJerkpt2());
-    	addSequential(new AutoBoxInsurance());
+    	addParallel(new AutoTheJerkpt2(0.1));
+    	addSequential(new AutoBoxInsurance(1));
     	
     	addParallel(new AutoDrive(3));
-    	addSequential(new AutoLift());
+    	addSequential(new AutoLift(1.5));
     	
-    	addSequential(new AutoClaw());
+    	addSequential(new AutoTurn(0.3));
+    	
+    	addSequential(new AutoClaw(1.5));
     	
     	
         // Add Commands here:
