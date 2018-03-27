@@ -13,7 +13,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3468.robot.commands.SwitchAutonomous;
+import org.usfirst.frc.team3468.robot.commands.DriveAutonomousJerk;
+import org.usfirst.frc.team3468.robot.commands.SwitchAutonomousLeft;
+import org.usfirst.frc.team3468.robot.commands.SwitchAutonomousRight;
 import org.usfirst.frc.team3468.robot.commands.autonomous.AutoDrive;
 import org.usfirst.frc.team3468.robot.commands.autonomous.DoNothing;
 import org.usfirst.frc.team3468.robot.subsystems.Drivetrain;
@@ -49,7 +51,9 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		m_chooser.addDefault("Drive Forward", new AutoDrive(4.0));
 		m_chooser.addObject("Do NOTHING", new DoNothing(5));
-		m_chooser.addObject("Switch Auto", new SwitchAutonomous());
+		m_chooser.addObject("Switch Auto Left", new SwitchAutonomousLeft());
+		m_chooser.addObject("Switch Auto Right", new SwitchAutonomousRight());
+		m_chooser.addObject("Auto Drive Jolt", new DriveAutonomousJerk());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
 

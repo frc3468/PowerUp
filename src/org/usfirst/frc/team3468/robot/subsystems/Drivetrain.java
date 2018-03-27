@@ -13,6 +13,9 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  */
 public class Drivetrain extends Subsystem {
 	
+	//boolean liftMode = false;
+	
+	
 	
 	Spark motorDrivetrainFrontRight = new Spark(RobotMap.drivetrainFrontRight);
 	Spark motorDrivetrainBackRight = new Spark(RobotMap.drivetrainRearRight);
@@ -25,6 +28,9 @@ public class Drivetrain extends Subsystem {
 	DifferentialDrive robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 	
 	public void haloDrive(double magnitude, double rotation) {
+		//if(liftMode == true) {
+			//magnitude = .6*magnitude;
+		//}
 		rotation = map(rotation, -1.0, 1.0, -0.8, 0.8);
 		robotDrive.arcadeDrive(magnitude, rotation);
 	}
@@ -39,5 +45,9 @@ public class Drivetrain extends Subsystem {
     private double map(double x, double in_min, double in_max, double out_min, double out_max) {
       return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
+    
+   // public void setLiftMode(boolean mode) {
+    	//liftMode = mode;
+   //` }
 }
 

@@ -7,29 +7,30 @@ import org.usfirst.frc.team3468.robot.commands.autonomous.AutoLift;
 import org.usfirst.frc.team3468.robot.commands.autonomous.AutoTheJerk;
 import org.usfirst.frc.team3468.robot.commands.autonomous.AutoTheJerkpt2;
 import org.usfirst.frc.team3468.robot.commands.autonomous.AutoTurn;
+import org.usfirst.frc.team3468.robot.commands.autonomous.AutoTurnNegative;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class SwitchAutonomous extends CommandGroup {
+public class SwitchAutonomousRight extends CommandGroup {
 
-    public SwitchAutonomous() {
+    public SwitchAutonomousRight() {
+    	
     	
     	addSequential(new AutoTheJerk(0.1));
     	
     	addParallel(new AutoTheJerkpt2(0.1));
     	addSequential(new AutoBoxInsurance(1));
     	
-    	addParallel(new AutoDrive(3));
-    	addSequential(new AutoLift(1.5));
+    	addSequential(new AutoDrive(3.8));
     	
-    	addSequential(new AutoTurn(0.3));
+    	addSequential(new AutoTurnNegative(0.7));
+    	
+    	addSequential(new AutoLift(1.0));
     	
     	addSequential(new AutoClaw(1.5));
-    	
-    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

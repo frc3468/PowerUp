@@ -31,9 +31,9 @@ public class RobotMap {
 	
 	public static int bipItButton = 2;
 	
-	public static int lowerLimit = 0;
+	public static int lowerLimit = 8;
 	
-	public static int upperLimit = 1;
+	public static int upperLimit = 9;
 	
 	public static int theLeftBeakMotor = 5;
 	public static int theRightBeakMotor = 6;

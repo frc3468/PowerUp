@@ -26,7 +26,7 @@ public class TheBeak extends Subsystem {
 		
 	}
 	public void theRegurgitate() {
-		beakMotors.set(0.65);
+		beakMotors.set(1);
 		
 	}
 	public void theHalt() {
